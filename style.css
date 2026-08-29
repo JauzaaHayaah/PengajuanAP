@@ -1,0 +1,214 @@
+/* style.css - Memenuhi Tampilan Persis Portal Internal Brighton App (Sederhana & Sedikit Kaku) */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif; /* Font kaku standar sistem internal */
+}
+
+body {
+  background-color: #EFEFEF; /* Background abu-abu muda khas portal enterprise */
+  color: #222222;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* TOP YELLOW BAR HEADER */
+.top-yellow-bar {
+  background-color: #FFC700; /* Warna kuning Brighton */
+  border-bottom: 1px solid #D0A300;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+}
+
+.top-bar-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* USER GREETING SECTION (POJOK KIRI ATAS) */
+.user-greeting-bar {
+  padding: 14px 20px 8px 20px;
+  font-size: 13px;
+  color: #333333;
+}
+
+.greeting-line {
+  margin-bottom: 2px;
+}
+
+/* PAGE CONTAINER */
+.page-container {
+  padding: 10px 20px 30px 20px;
+}
+
+/* INFO / KETERANGAN YELLOW CARD */
+.info-yellow-card {
+  background-color: #FFC700;
+  border: 1px solid #D6A700;
+  border-radius: 2px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.info-title {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.info-list {
+  list-style: none;
+  font-size: 12px;
+}
+
+.info-list li {
+  margin-bottom: 3px;
+}
+
+.badge-red-demo {
+  background-color: #FFC0C0;
+  color: #990000;
+  padding: 1px 6px;
+  border: 1px solid #CC0000;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+/* PANEL BOX (GAYA KAKU SCREENSHOT 2) */
+.panel-box {
+  background: #FFFFFF;
+  border: 1px solid #B2B2B2;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.panel-header {
+  background-color: #FFC700;
+  color: #000000;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #B2B2B2;
+}
+
+.panel-header.header-gray {
+  background-color: #E0E0E0;
+  color: #111111;
+  border-bottom: 1px solid #B2B2B2;
+}
+
+.panel-body {
+  background: #FFFFFF;
+}
+
+.padding-20 {
+  padding: 16px;
+}
+
+/* TABLE STYLING */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.brighton-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.brighton-table th {
+  background-color: #FFC700;
+  color: #000000;
+  font-weight: bold;
+  padding: 9px 8px;
+  border: 1px solid #888888;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.brighton-table td {
+  padding: 8px 10px;
+  border: 1px solid #CCCCCC;
+  color: #111111;
+}
+
+.brighton-table tbody tr:nth-child(even) {
+  background-color: #FAFAFA;
+}
+
+.brighton-table tbody tr:hover {
+  background-color: #FFF9E6;
+}
+
+/* ATURAN KOTAK MERAH UNTUK POIN UTAMA YANG TIDAK MEMENUHI SYARAT */
+/* (Hanya kotaknya yang berwarna merah, tanpa tanda red cross di dalam kotak) */
+.cell-failed {
+  background-color: #FFC0C0 !important;
+  color: #990000 !important;
+  font-weight: bold;
+}
+
+/* CHECKLIST & RED CROSS HANYA UNTUK KOLOM STATUS SYARAT */
+.text-green {
+  color: #008000;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.text-red {
+  color: #CC0000;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* SYARAT TAMBAHAN ACCORDION / LIST */
+.req-group {
+  margin-bottom: 14px;
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+}
+
+.req-group:last-child {
+  margin-bottom: 0;
+}
+
+.req-group-title {
+  background-color: #F5F5F5;
+  padding: 8px 12px;
+  font-weight: bold;
+  font-size: 13px;
+  border-bottom: 1px solid #CCCCCC;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.req-group-body {
+  padding: 10px 14px;
+  background-color: #FFFFFF;
+}
+
+.req-item-list {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.req-item-list li {
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #333333;
+}
+
+/* FOOTER */
+.portal-footer {
+  text-align: center;
+  padding: 20px;
+  color: #777777;
+  font-size: 11px;
+}

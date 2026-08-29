@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syarat Pengajuan Associate Principal (AP)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOP BAR (BAR KUNING KHAS BRIGHTON APP) -->
+  <header class="top-yellow-bar">
+    <div class="top-bar-title">Syarat Pengajuan Associate Principal (AP)</div>
+  </header>
+
+  <!-- USER INFO SECTION (POJOK KIRI ATAS SESUAI SCREENSHOT) -->
+  <div class="user-greeting-bar">
+    <div class="greeting-line">Halo <span id="user-name-text">JULYA MELANI (JN)</span>,</div>
+    <div class="greeting-line">Jabatan Anda: <strong>Principal</strong></div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="page-container">
+
+    <!-- PANEL KETERANGAN / FILTER (GAYA BRIGHTON APP) -->
+    <div class="info-yellow-card">
+      <div class="info-title">ℹ️ Keterangan Status Syarat :</div>
+      <ul class="info-list">
+        <li>- Standar Minimal: <strong>Listing ≥ 1.000</strong> | <strong>Total Team ≥ 40</strong> | <strong>Total BM ≥ 3</strong></li>
+        <li>- Cell/Kotak berwarna <span class="badge-red-demo">Merah</span> : Menandakan poin parameter yang <strong>Tidak Memenuhi Syarat</strong>.</li>
+        <li>- Kolom <strong>STATUS SYARAT</strong> : Menampilkan tanda <span class="text-green">✓</span> (Memenuhi) atau <span class="text-red">❌</span> (Tidak Memenuhi).</li>
+      </ul>
+    </div>
+
+    <!-- MAIN TABLE PANEL -->
+    <div class="panel-box">
+      <div class="panel-header">
+        Laporan Evaluasi Syarat Pengajuan Associate Principal
+      </div>
+      <div class="panel-body table-responsive">
+        <table class="brighton-table">
+          <thead>
+            <tr>
+              <th style="width: 40px; text-align: center;">NO</th>
+              <th>Nama Business Manager</th>
+              <th>Wilayah</th>
+              <th style="text-align: right;">GC Settled Pribadi (Min. 100jt - Max. 400jt)</th>
+              <th style="text-align: right;">GC Settled Team</th>
+              <th style="text-align: center;">Listing</th>
+              <th style="text-align: center;">Total Team</th>
+              <th style="text-align: center;">Total BM</th>
+              <th style="text-align: center; width: 120px;">STATUS SYARAT</th>
+            </tr>
+          </thead>
+          <tbody id="candidates-table-body">
+            <!-- Data dimasukkan oleh script.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SPACING -->
+    <div style="height: 20px;"></div>
+
+    <!-- SYARAT TAMBAHAN PANEL -->
+    <div class="panel-box" id="syarat-tambahan">
+      <div class="panel-header header-gray">
+        SYARAT TAMBAHAN PENGAJUAN ASSOCIATE PRINCIPAL
+      </div>
+      <div class="panel-body padding-20" id="requirements-container">
+        <!-- Data syarat tambahan dimasukkan oleh script.js -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="portal-footer">
+    <p>Brighton Real Estate &copy; 2026 - Portal Internal Pengajuan Associate Principal</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
