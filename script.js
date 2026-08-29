@@ -1,4 +1,4 @@
-// script.js - Logika Render Tabel & Evaluasi Kotak Merah
+// script.js - Logika Render Tabel, Perhitungan Target 1,2M & Status Evaluasi
 
 document.addEventListener("DOMContentLoaded", () => {
   initUserInfo();
@@ -6,34 +6,49 @@ document.addEventListener("DOMContentLoaded", () => {
   renderRequirements();
 });
 
-// 1. Set Informasi User (Pojok Kiri Atas)
 function initUserInfo() {
   document.getElementById("user-name-text").innerText = principalInfo.nama;
 }
 
-// Helper Format Angka ke Rupiah
-function formatRupiah(angka) {
-  if (angka >= 1000000000) {
-    return (angka / 1000000000).toFixed(1).replace(".", ",") + " M";
-  } else if (angka >= 1000000) {
-    return (angka / 1000000).toFixed(0) + " Jt";
+// Format Angka ke Rupiah / Juta / Miliar
+function formatRupiahJuta(nominalJuta) {
+  if (nominalJuta >= 1000) {
+    const miliarm = (nominalJuta / 1000).toFixed(1).replace(".", ",");
+    return miliarm + " M";
   }
-  return angka.toLocaleString("id-ID");
+  return nominalJuta + " Jt";
 }
 
-// Helper Format Ribuan
 function formatNumber(angka) {
   return angka.toLocaleString("id-ID");
 }
 
-// 2. Render Tabel Evaluasi Calon AP
 function renderTable() {
   const tbody = document.getElementById("candidates-table-body");
   tbody.innerHTML = "";
 
+  const TARGET_TOTAL_GC = 1200; // Target Kombinasi GC Pribadi + Team = 1.2 Miliar (1.200 Juta)
+
   candidatesData.forEach((candidate, index) => {
-    // Mengecek apakah SEMUA kriteria bernilai true
-    const isAllPassed = Object.values(candidate.checks).every(val => val === true);
+    // Perhitungan Total GC & Surplus/Gap
+    const totalGc = candidate.gcPribadi + candidate.gcTeam;
+    const gapOrSurplus = totalGc - TARGET_TOTAL_GC;
+
+    // Evaluasi Status Kelulusan Syarat
+    const isGcPassed = totalGc >= TARGET_TOTAL_GC;
+    const isListingPassed = candidate.checks.listing;
+    const isTeamPassed = candidate.checks.totalTeam;
+    const isBmPassed = candidate.checks.totalBm;
+
+    const isAllPassed = isGcPassed && isListingPassed && isTeamPassed && isBmPassed;
+
+    // Badge Gap / Surplus HTML
+    let badgeHtml = "";
+    if (gapOrSurplus < 0) {
+      badgeHtml = `<div class="badge-gap-minus">${gapOrSurplus} Jt</div>`;
+    } else {
+      badgeHtml = `<div class="badge-gap-plus">+${gapOrSurplus} Jt</div>`;
+    }
 
     const tr = document.createElement("tr");
 
@@ -42,28 +57,39 @@ function renderTable() {
       <td><strong>${candidate.nama}</strong></td>
       <td>${candidate.wilayah}</td>
       
-      <!-- GC Pribadi -->
-      <td style="text-align: right;" class="${candidate.checks.gcPribadi ? '' : 'cell-failed'}">
-        ${formatRupiah(candidate.gcPribadi)}
+      <!-- KOLOM UNI (BO, BS, FT) -->
+      <td style="text-align: center;">${candidate.bo ? '<span class="text-green">✓</span>' : ''}</td>
+      <td style="text-align: center;">${candidate.bs ? '<span class="text-green">✓</span>' : ''}</td>
+      <td style="text-align: center;">${candidate.ft ? '<span class="text-green">✓</span>' : ''}</td>
+      
+      <!-- GC PRIBADI -->
+      <td style="text-align: right;">
+        ${formatRupiahJuta(candidate.gcPribadi)}
       </td>
       
-      <!-- GC Team -->
-      <td style="text-align: right;" class="${candidate.checks.gcTeam ? '' : 'cell-failed'}">
-        ${formatRupiah(candidate.gcTeam)}
+      <!-- GC TEAM (+ HIGHLIGHT SURPLUS / GAP TULISAN KECIL DIBAWAHNYA) -->
+      <td style="text-align: right;">
+        <div>${formatRupiahJuta(candidate.gcTeam)}</div>
+        ${badgeHtml}
       </td>
       
-      <!-- Listing (Jika tidak memenuhi, kotaknya berwarna merah TANPA tanda red cross) -->
-      <td style="text-align: center;" class="${candidate.checks.listing ? '' : 'cell-failed'}">
+      <!-- LIMIT BREAKER -->
+      <td style="text-align: center;">
+        ${candidate.limitBreaker}
+      </td>
+      
+      <!-- LISTING (Kotak Merah jika tidak memenuhi, tanpa tanda red cross) -->
+      <td style="text-align: center;" class="${isListingPassed ? '' : 'cell-failed'}">
         ${formatNumber(candidate.listing)}
       </td>
       
-      <!-- Total Team (Jika tidak memenuhi, kotaknya berwarna merah TANPA tanda red cross) -->
-      <td style="text-align: center;" class="${candidate.checks.totalTeam ? '' : 'cell-failed'}">
+      <!-- TOTAL TEAM (Kotak Merah jika tidak memenuhi, tanpa tanda red cross) -->
+      <td style="text-align: center;" class="${isTeamPassed ? '' : 'cell-failed'}">
         ${candidate.totalTeam}
       </td>
       
-      <!-- Total BM (Jika tidak memenuhi, kotaknya berwarna merah TANPA tanda red cross) -->
-      <td style="text-align: center;" class="${candidate.checks.totalBm ? '' : 'cell-failed'}">
+      <!-- TOTAL BM (Kotak Merah jika tidak memenuhi, tanpa tanda red cross) -->
+      <td style="text-align: center;" class="${isBmPassed ? '' : 'cell-failed'}">
         ${candidate.totalBm}
       </td>
       
@@ -81,7 +107,6 @@ function renderTable() {
   });
 }
 
-// 3. Render Syarat Tambahan
 function renderRequirements() {
   const container = document.getElementById("requirements-container");
   container.innerHTML = "";

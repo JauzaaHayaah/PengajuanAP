@@ -8,12 +8,12 @@
 </head>
 <body>
 
-  <!-- TOP BAR (BAR KUNING KHAS BRIGHTON APP) -->
+  <!-- TOP BAR KUNING BRIGHTON -->
   <header class="top-yellow-bar">
     <div class="top-bar-title">Syarat Pengajuan Associate Principal (AP)</div>
   </header>
 
-  <!-- USER INFO SECTION (POJOK KIRI ATAS SESUAI SCREENSHOT) -->
+  <!-- USER INFO SECTION (POJOK KIRI ATAS) -->
   <div class="user-greeting-bar">
     <div class="greeting-line">Halo <span id="user-name-text">JULYA MELANI (JN)</span>,</div>
     <div class="greeting-line">Jabatan Anda: <strong>Principal</strong></div>
@@ -22,17 +22,18 @@
   <!-- MAIN CONTENT CONTAINER -->
   <main class="page-container">
 
-    <!-- PANEL KETERANGAN / FILTER (GAYA BRIGHTON APP) -->
+    <!-- PANEL KETERANGAN STATUS SYARAT -->
     <div class="info-yellow-card">
       <div class="info-title">ℹ️ Keterangan Status Syarat :</div>
       <ul class="info-list">
-        <li>- Standar Minimal: <strong>Listing ≥ 1.000</strong> | <strong>Total Team ≥ 40</strong> | <strong>Total BM ≥ 3</strong></li>
+        <li>- Standar Minimal: <strong>Listing ≥ 1.000</strong> | <strong>Total Team ≥ 40</strong> | <strong>Total BM ≥ 3</strong> | <strong>Total GC ≥ 1,2 M</strong></li>
+        <li>- Singkatan UNI Class: <strong>BO</strong> : Bright On | <strong>BS</strong> : Bright Star | <strong>FT</strong> : Fast Track</li>
         <li>- Cell/Kotak berwarna <span class="badge-red-demo">Merah</span> : Menandakan poin parameter yang <strong>Tidak Memenuhi Syarat</strong>.</li>
         <li>- Kolom <strong>STATUS SYARAT</strong> : Menampilkan tanda <span class="text-green">✓</span> (Memenuhi) atau <span class="text-red">❌</span> (Tidak Memenuhi).</li>
       </ul>
     </div>
 
-    <!-- MAIN TABLE PANEL -->
+    <!-- TABEL UTAMA EVALUASI -->
     <div class="panel-box">
       <div class="panel-header">
         Laporan Evaluasi Syarat Pengajuan Associate Principal
@@ -41,25 +42,34 @@
         <table class="brighton-table">
           <thead>
             <tr>
-              <th style="width: 40px; text-align: center;">NO</th>
-              <th>Nama Business Manager</th>
-              <th>Wilayah</th>
-              <th style="text-align: right;">GC Settled Pribadi (Min. 100jt - Max. 400jt)</th>
-              <th style="text-align: right;">GC Settled Team</th>
-              <th style="text-align: center;">Listing</th>
-              <th style="text-align: center;">Total Team</th>
-              <th style="text-align: center;">Total BM</th>
-              <th style="text-align: center; width: 120px;">STATUS SYARAT</th>
+              <th rowspan="2" class="col-no">NO</th>
+              <th rowspan="2" class="col-nama">NAMA BUSINESS MANAGER</th>
+              <th rowspan="2" class="col-wilayah">WILAYAH</th>
+              <th colspan="3" class="col-uni-header">UNI</th>
+              <th rowspan="2" class="col-gc-pribadi">
+                GC PRIBADI<br>
+                <span class="sub-header-text">(MIN. 100JT - MAX. 400JT)</span>
+              </th>
+              <th rowspan="2" class="col-gc-team">GC TEAM</th>
+              <th rowspan="2" class="col-lb">LIMIT BREAKER</th>
+              <th rowspan="2" class="col-stat">LISTING</th>
+              <th rowspan="2" class="col-stat">TOTAL TEAM</th>
+              <th rowspan="2" class="col-stat">TOTAL BM</th>
+              <th rowspan="2" class="col-status">STATUS SYARAT</th>
+            </tr>
+            <tr>
+              <th class="col-uni-sub">BO</th>
+              <th class="col-uni-sub">BS</th>
+              <th class="col-uni-sub">FT</th>
             </tr>
           </thead>
           <tbody id="candidates-table-body">
-            <!-- Data dimasukkan oleh script.js -->
+            <!-- Data di-render oleh script.js -->
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- SPACING -->
     <div style="height: 20px;"></div>
 
     <!-- SYARAT TAMBAHAN PANEL -->
@@ -68,7 +78,7 @@
         SYARAT TAMBAHAN PENGAJUAN ASSOCIATE PRINCIPAL
       </div>
       <div class="panel-body padding-20" id="requirements-container">
-        <!-- Data syarat tambahan dimasukkan oleh script.js -->
+        <!-- Data syarat tambahan di-render oleh script.js -->
       </div>
     </div>
 

@@ -1,4 +1,4 @@
-// data.js - Database Dummy Pengajuan AP Brighton Real Estate
+// data.js - Database Pengajuan AP Brighton Real Estate
 
 const principalInfo = {
   nama: "JULYA MELANI (JN)",
@@ -10,14 +10,16 @@ const candidatesData = [
     id: "BM-001",
     nama: "GUNAWAN",
     wilayah: "Winner, Palembang",
-    gcPribadi: 850000000,   // Rp 850 Juta
-    gcTeam: 3800000000,     // Rp 3.8 Miliar
-    listing: 1850,          // 1.850 Listing
-    totalTeam: 52,          // 52 Personil
-    totalBm: 4,             // 4 BM
+    bo: true,
+    bs: true,
+    ft: true,            // Checklist Fast Track #1
+    gcPribadi: 198,      // Dalam Juta (198 Jt)
+    gcTeam: 850,         // Dalam Juta (850 Jt) -> Total = 1,048 M (Gap: -152 Jt dari 1,2 M)
+    limitBreaker: 10,    // Range 4 - 11
+    listing: 1850,
+    totalTeam: 52,
+    totalBm: 4,
     checks: {
-      gcPribadi: true,
-      gcTeam: true,
       listing: true,
       totalTeam: true,
       totalBm: true
@@ -27,14 +29,16 @@ const candidatesData = [
     id: "BM-002",
     nama: "LINDA CHANG",
     wilayah: "Winner, Pakuwon Indah",
-    gcPribadi: 1200000000,  // Rp 1.2 Miliar
-    gcTeam: 4900000000,     // Rp 4.9 Miliar
-    listing: 3400,          // 3.400 Listing
-    totalTeam: 78,          // 78 Personil
-    totalBm: 6,             // 6 BM
+    bo: true,
+    bs: true,
+    ft: true,            // Checklist Fast Track #2
+    gcPribadi: 350,      // Dalam Juta (350 Jt)
+    gcTeam: 950,         // Dalam Juta (950 Jt) -> Total = 1,300 M (Surplus: +100 Jt dari 1,2 M)
+    limitBreaker: 11,
+    listing: 3400,
+    totalTeam: 78,
+    totalBm: 6,
     checks: {
-      gcPribadi: true,
-      gcTeam: true,
       listing: true,
       totalTeam: true,
       totalBm: true
@@ -44,31 +48,35 @@ const candidatesData = [
     id: "BM-003",
     nama: "FENI",
     wilayah: "Winner West BSD",
-    gcPribadi: 450000000,   // Rp 450 Juta
-    gcTeam: 2100000000,     // Rp 2.1 Miliar
-    listing: 850,           // 850 Listing (Tidak Memenuhi - Kotak Merah)
-    totalTeam: 32,          // 32 Personil (Tidak Memenuhi - Kotak Merah)
-    totalBm: 2,             // 2 BM (Tidak Memenuhi - Kotak Merah)
+    bo: true,
+    bs: true,
+    ft: false,           // Kosong
+    gcPribadi: 150,      // Dalam Juta (150 Jt)
+    gcTeam: 720,         // Dalam Juta (720 Jt) -> Total = 870 Jt (Gap: -330 Jt dari 1,2 M)
+    limitBreaker: 4,
+    listing: 850,        // Tidak Memenuhi (Kotak Merah)
+    totalTeam: 32,       // Tidak Memenuhi (Kotak Merah)
+    totalBm: 2,          // Tidak Memenuhi (Kotak Merah)
     checks: {
-      gcPribadi: true,
-      gcTeam: true,
-      listing: false,     // KOTAK WARNA MERAH (TANPA RED CROSS IN-CELL)
-      totalTeam: false,   // KOTAK WARNA MERAH (TANPA RED CROSS IN-CELL)
-      totalBm: false      // KOTAK WARNA MERAH (TANPA RED CROSS IN-CELL)
+      listing: false,
+      totalTeam: false,
+      totalBm: false
     }
   },
   {
     id: "BM-004",
     nama: "STEVE WU",
     wilayah: "Winner, Pakuwon Indah",
-    gcPribadi: 980000000,   // Rp 980 Juta
-    gcTeam: 3500000000,     // Rp 3.5 Miliar
-    listing: 2100,          // 2.100 Listing
-    totalTeam: 48,          // 48 Personil
-    totalBm: 3,             // 3 BM
+    bo: true,
+    bs: true,
+    ft: false,           // Kosong
+    gcPribadi: 280,      // Dalam Juta (280 Jt)
+    gcTeam: 940,         // Dalam Juta (940 Jt) -> Total = 1,220 M (Surplus: +20 Jt dari 1,2 M)
+    limitBreaker: 8,
+    listing: 2100,
+    totalTeam: 48,
+    totalBm: 3,
     checks: {
-      gcPribadi: true,
-      gcTeam: true,
       listing: true,
       totalTeam: true,
       totalBm: true
@@ -78,15 +86,17 @@ const candidatesData = [
     id: "BM-005",
     nama: "TJOA STEPHEN",
     wilayah: "Winner, PIK",
-    gcPribadi: 620000000,   // Rp 620 Juta
-    gcTeam: 2800000000,     // Rp 2.8 Miliar
-    listing: 950,           // 950 Listing (Tidak Memenuhi - Kotak Merah)
-    totalTeam: 42,          // 42 Personil
-    totalBm: 3,             // 3 BM
+    bo: true,
+    bs: true,
+    ft: false,           // Kosong
+    gcPribadi: 150,      // Dalam Juta (150 Jt)
+    gcTeam: 1100,        // Dalam Juta (1,1 M) -> Total = 1,250 M (Surplus: +50 Jt dari 1,2 M)
+    limitBreaker: 6,
+    listing: 950,        // Tidak Memenuhi (Kotak Merah)
+    totalTeam: 42,
+    totalBm: 3,
     checks: {
-      gcPribadi: true,
-      gcTeam: true,
-      listing: false,     // KOTAK WARNA MERAH (TANPA RED CROSS IN-CELL)
+      listing: false,
       totalTeam: true,
       totalBm: true
     }
@@ -95,14 +105,16 @@ const candidatesData = [
     id: "BM-006",
     nama: "ECHA",
     wilayah: "Winner, Cengkareng",
-    gcPribadi: 750000000,   // Rp 750 Juta
-    gcTeam: 4200000000,     // Rp 4.2 Miliar
-    listing: 2900,          // 2.900 Listing
-    totalTeam: 65,          // 65 Personil
-    totalBm: 5,             // 5 BM
+    bo: true,
+    bs: true,
+    ft: false,           // Kosong
+    gcPribadi: 220,      // Dalam Juta (220 Jt)
+    gcTeam: 890,         // Dalam Juta (890 Jt) -> Total = 1,110 M (Gap: -90 Jt dari 1,2 M)
+    limitBreaker: 9,
+    listing: 2900,
+    totalTeam: 65,
+    totalBm: 5,
     checks: {
-      gcPribadi: true,
-      gcTeam: true,
       listing: true,
       totalTeam: true,
       totalBm: true
@@ -110,7 +122,6 @@ const candidatesData = [
   }
 ];
 
-// Detail Persyaratan Tambahan (Diambil dari Excel)
 const syaratTambahanData = [
   {
     kategori: "1. KONTRIBUSI TEAM",
@@ -168,7 +179,7 @@ const syaratTambahanData = [
     items: [
       "Skill Recruitment (membuat video 1 menit).",
       "Skill Training / Coaching (membuat video 1 menit).",
-      "Skill Komunikasi (membuat video branding 1 menit).",
+      "Skill Komunikasi (membuat video 1 menit).",
       "Skill Public Speaking - membawakan Meeting, Bright Day dengan benar.",
       "Skill Analisa, berpikir kritis & logika dengan baik.",
       "Time Management.",
